@@ -27,14 +27,21 @@ class ViewController: UIViewController {
             set.insert(UIColor.hexStringToUIColor(hex: UIColor.randomHex()))
         }
         
-        UIView.animate(withDuration: 2, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             for view in self.views {
                 view.layer.cornerRadius = 10
                 view.backgroundColor = set.popFirst()
+                view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                
             }
         }) {
             complition in
             button?.isEnabled = true
+            UIView.animate(withDuration: 0.7, animations: {
+                for view in self.views {
+                    view.transform = CGAffineTransform.identity
+                }
+                })
         }
            
         
