@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for view in self.views {
+            view.layer.cornerRadius = 10
+        }
+        
     }
     
     
@@ -29,7 +33,6 @@ class ViewController: UIViewController {
         
         UIView.animate(withDuration: 0.7, animations: {
             for view in self.views {
-                view.layer.cornerRadius = 10
                 view.backgroundColor = set.popFirst()
                 view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
                 
